@@ -5,14 +5,14 @@ import {motion} from 'framer-motion'
 const Footer = () => {
   return (
    
-    <div className='pt-20 pb-12 '>
+    <div className='pt-20 pb-12 flex items-center justify-center h-full '>
          <motion.div
-    initial={{opacity: 0, y: 80}}
+    initial={{opacity: 0, y: 150}}
     whileInView={{opacity: 1, y: 0}}
-    transition={{type: 'spring', stiffness: 10, damping: 5}}
+    transition={{type: 'spring', stiffness: 20, damping: 5}}
     viewport={{once: true}}
     >
-        <div className='container mx-auto text-center px-6 sm:px-12 md:px-24 lg:px-40'>
+        <div className='container mx-auto text-center px-6 sm:px-12 md:px-24 lg:px-40 pt-[70px] pb-[70px] bg-[#fff] rounded-2xl'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
 
                 {/* Left */}
@@ -35,7 +35,7 @@ const Footer = () => {
                     <p className='text-sm'>Subscribe to get the latest college admission updates, verified information, and career guidance directly in your inbox.</p>
                     <div className='flex flex-col md:flex-row items-start gap-2 mt-4'>
                         <input className='w-full px-4 py-3 border border-[#aeaeae] rounded outline-none text-[15px]' type="text" placeholder='Enter Your Email' />
-                        <button className='group relative overflow-hidden bg-[#bc0101] text-white py-3 px-6 rounded cursor-pointer hover:bg-[#900101] transition-colors duration-300 flex items-center justify-center'>
+                        <button className='group relative overflow-hidden bg-[#bc0101] text-white py-3 px-6 rounded cursor-pointer hover:bg-[#900101] transition-colors duration-300 flex items-center justify-center font-semibold'>
   
   {/* Default Text */}
   <span className='block transition-all duration-300 group-hover:-translate-y-10 group-hover:opacity-0 '>

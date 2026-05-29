@@ -23,7 +23,7 @@ const Navbar = () => {
             </div>
             {/* Right-side */}
             <div className='hidden md:block'>
-  <button className='group relative overflow-hidden flex items-center justify-center bg-[#bc0101] px-6 py-2 rounded-[22px] text-white cursor-pointer hover:bg-[#900101] transition-colors duration-300'>
+  <button className='group relative overflow-hidden flex items-center justify-center bg-[#bc0101] px-6 py-2 rounded-[22px] text-white cursor-pointer hover:bg-[#900101] transition-colors duration-300 font-semibold'>
     
     {/* Default Content */}
     <span className='flex items-center gap-2 transition-all duration-300 group-hover:-translate-y-10 group-hover:opacity-0'>

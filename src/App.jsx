@@ -1,39 +1,101 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import CursorGlow from './components/Cursor-glow'
-import Lenis from '@studio-freight/lenis'
-import { useEffect } from 'react'
+import React, { useEffect, useRef } from "react";
+
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import CursorGlow from "./components/Cursor-glow";
+
+import Hero from "./components/Hero";
+import Company from "./components/Company";
+import Work from "./components/Work";
+import Contact from "./components/Contact";
+import Services from "./components/Services";
 
 const App = () => {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      smoothWheel: true,
-      lerp: 0.05,
-    });
- 
-    function raf(time) {
-      lenis.raf(time);
- 
-      requestAnimationFrame(raf);
-    }
- 
-    requestAnimationFrame(raf);
- 
-  }, []);
-  return (
-    <div>
-      <CursorGlow/>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-      <Footer/>
-    </div>
-  )
-}
+  const scrollRef = useRef(null);
 
-export default App
+  useEffect(() => {
+    const container = scrollRef.current;
+
+    if (!container) return;
+
+    const handleWheel = (e) => {
+      e.preventDefault();
+
+      container.scrollBy({
+        left: e.deltaY * 2,
+        behavior: "smooth",
+      });
+    };
+
+    container.addEventListener("wheel", handleWheel, {
+      passive: false,
+    });
+
+    return () => {
+      container.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  return (
+    <div className="w-screen h-screen overflow-hidden">
+      <CursorGlow />
+
+      <Navbar />
+
+      {/* SCROLL CONTAINER */}
+      <div
+        ref={scrollRef}
+        className="w-screen h-screen overflow-x-scroll overflow-y-hidden scroll-smooth"
+      >
+        {/* HORIZONTAL WRAPPER */}
+        <div className="flex h-screen w-[500vw]">
+          
+          <section
+            id="hero"
+            className="w-screen h-screen shrink-0"
+          >
+            <Hero />
+          </section>
+
+          <section
+            id="company"
+            className="w-screen h-screen shrink-0"
+          >
+            <Company />
+          </section>
+
+          <section
+            id="services"
+            className="w-screen h-screen shrink-0"
+          >
+            <Services />
+          </section>
+
+          <section
+            id="work"
+            className="w-screen h-screen shrink-0"
+          >
+            <Work />
+          </section>
+
+          <section
+            id="contact"
+            className="w-screen h-screen shrink-0"
+          >
+            <Contact />
+          </section>
+
+          <section
+            id="footer"
+            className="w-screen h-screen shrink-0"
+          >
+            <Footer />
+          </section>
+
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default App;

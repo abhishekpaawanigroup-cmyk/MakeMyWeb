@@ -8,14 +8,14 @@ import {motion} from 'framer-motion'
 const Hero = () => {
   return (
     <motion.div
-    initial={{opacity: 0, y: -80}}
+    initial={{opacity: 0, y: -150}}
     whileInView={{opacity: 1, y: 0}}
-    transition={{type: 'spring', stiffness: 10, damping: 5}}
+    transition={{type: 'spring', stiffness: 20, damping: 5}}
     viewport={{once: true}}
     >
 
 
-    <div className='w-full py-40'>
+    <div className='w-full py-40 flex items-center justify-center flex-col h-screen'>
         <div className='container mx-auto px-6'>
             <div className='flex items-center mx-auto gap-4 border border-[#bc0101] rounded-full w-full md:w-[25%] py-2 pl-2 text-grey-500'>
                 <div className='flex items-center -space-x-2'>
@@ -65,19 +65,7 @@ const Hero = () => {
 </button>
             </div>
 
-            {/* Image */}
-            <div className='w-[80%] mx-auto mt-20 rounded-2xl flex jsutify-between'>
-                <div className='perspective-[1000px] w-[50%]'>
-                    <div className='absolute inset-0 bg-gradient-to-r from-[#b9a1a1] to-transparent blur-3xl scale-110'></div>
-                <img src={Images4} alt="college-1" className='w-full h-full  rounded-[30px] shadow-[0_25px_60px_rgba(0,0,0,0.7)]'
-                 style={{ transform: 'rotateY(30deg) rotateX(0deg) translateZ(30px)'}}/>
-                </div>
-                <div className='perspective-[1000px] w-[50%] ml-[-50px]'>
-                    <div className='absolute inset-0 bg-gradient-to-r from-[#b9a1a1] to-transparent blur-3xl scale-110'></div>
-                <img src={Images1} alt="college-1" className='w-full h-full  rounded-[30px] shadow-[0_25px_60px_rgba(0,0,0,82%)] '
-                 style={{ transform: 'rotateY(-24deg) rotateX(0deg) translateZ(100px)'}}/>
-                </div>
-            </div>
+           
 
         </div>
     </div>

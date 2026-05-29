@@ -35,12 +35,12 @@ const cards = [
 const Services = () => {
   return (
     <motion.div
-    initial={{opacity: 0, x: -80}}
-    whileInView={{opacity: 1, x: 0}}
-    transition={{type: 'spring', stiffness: 10, damping: 5}}
+    initial={{opacity: 0, y: -150}}
+    whileInView={{opacity: 1, y: 0}}
+    transition={{type: 'spring', stiffness: 20, damping: 5}}
     viewport={{once: true}}
     >
-    <div className='py-20'>
+    <div className='py-20 flex items-center justify-center h-screen'>
         <div className='container mx-auto px-6 sm:px-12 md:px-24 lg:px-40'>
             <div className='text-center mb-16'>
                 <h1 className='text-[36px]'>How We Can Help You?</h1>
@@ -51,16 +51,35 @@ const Services = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 gap-12'>
 
                 {cards.map((card) => (
-                   <div className='flex bg-[#f7f7f7] p-12 rounded-xl border border-[#ffd6d6] flex-col md:flex-row items-center gap-6 hover:scale-105 transition-transform duration-300 object-cover will-change-transform transform-gpu cursor-pointer' key={card.id}>
-                        <div className='w-[100px] h-[100px] '>
-                            <img src={card.image} alt={card.title} className='w-full h-full rounded-full overflow-hidden object-cover object-center' />
-                        </div>
-                    <div className='max-w-[70%]'>
-                        <h2 className='text-[24px] font-bold mb-4'>{card.title}</h2>
-                    <p className='text-[16px] text-[#675b5b]'>{card.description}</p>
-                    </div>
-                    
-                </div>))}
+                   <div className="relative p-[1.5px] rounded-2xl overflow-hidden group hover:scale-105 transition-transform duration-300 object-cover will-change-transform transform-gpu cursor-pointer border-2 border-transparent">
+  
+  {/* Moving Gradient Border */}
+  <div className="absolute inset-0 bg-[linear-gradient(90deg,#f90000,#ffcd00,#33ffd1,#ff1515)] bg-[length:300%_300%] animate-gradient rounded-2xl"></div>
+
+  {/* Card Content */}
+  <div
+    className="relative flex bg-[#f7f7f7] p-12 rounded-2xl  h-full flex-col md:flex-row items-center gap-6"
+    key={card.id}
+  >
+    <div className="w-[100px] h-[100px]">
+      <img
+        src={card.image}
+        alt={card.title}
+        className="w-full h-full rounded-full object-cover object-center"
+      />
+    </div>
+
+    <div className="max-w-[70%]">
+      <h2 className="text-[24px] font-bold mb-4">
+        {card.title}
+      </h2>
+
+      <p className="text-[16px] text-[#675b5b]">
+        {card.description}
+      </p>
+    </div>
+  </div>
+</div>))}
 
 
                

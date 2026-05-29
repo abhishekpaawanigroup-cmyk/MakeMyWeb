@@ -29,12 +29,12 @@ const works = [
 const Work = () => {
   return (
     <motion.div
-    initial={{opacity: 0, x: 80}}
-    whileInView={{opacity: 1, x: 0}}
-    transition={{type: 'spring', stiffness: 10, damping: 5}}
+    initial={{opacity: 0, y: 150}}
+    whileInView={{opacity: 1, y: 0}}
+    transition={{type: 'spring', stiffness: 20, damping: 5}}
     viewport={{once: true}}
     >
-    <div className='py-20'>
+    <div className='py-20 flex items-center justify-center flex-col gap-10 h-screen'>
         <div className='container mx-auto px-6 sm:px-12 md:px-24 lg:px-40'>
             <div className='text-center mb-16'>
                 <h1 className='text-4xl md:text-5xl'>Our Latest Work</h1>

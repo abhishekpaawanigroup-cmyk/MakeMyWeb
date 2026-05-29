@@ -5,12 +5,23 @@
   font-family: 'Saira', sans-serif;
 }
 body{
-  background-color: #ff00001c
+  background-color: #ff00001c;
+  overflow: hidden;
 }
-html.lenis,
-html.lenis body{
-  height: auto;
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
-.lenis.lenis-smooth{
-  scroll-behavior: auto !important
+
+.animate-gradient {
+  animation: gradientMove 3s ease infinite;
 }

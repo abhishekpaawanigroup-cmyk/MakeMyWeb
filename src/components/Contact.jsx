@@ -3,15 +3,15 @@ import {motion} from 'framer-motion'
 
 const Contact = () => {
   return (
-    <div className='py-20 bg-[#fff]'>
+    <div className='py-20 bg-[#fff] flex items-center justify-center flex-col h-full'>
 
         <motion.div
-    initial={{opacity: 0, x: -80}}
-    whileInView={{opacity: 1, x: 0}}
-    transition={{type: 'spring', stiffness: 10, damping: 5}}
+    initial={{opacity: 0, y: -150}}
+    whileInView={{opacity: 1, y: 0}}
+    transition={{type: 'spring', stiffness: 20, damping: 5}}
     viewport={{once: true}}
     >
-        <div className='container mx-auto px-6'>
+        <div className='container mx-auto px-[40px] py-[65px] border-2 border-[#e1e1e1] rounded-2xl'>
             <div className='text-center mb-16'>
                 <h1 className='text-4xl md:text-5xl mb-6'>Reach Out To Us</h1>
                 <p className='max-w-2xl mx-auto text-xl mt-4 text-[#675b5b]'>Reach Out to Us We are always here to help you find the right college.</p>
