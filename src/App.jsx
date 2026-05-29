@@ -6,6 +6,11 @@ import Footer from './components/Footer'
 import CursorGlow from './components/Cursor-glow'
 import Lenis from '@studio-freight/lenis'
 import { useEffect } from 'react'
+import Hero from './components/Hero'
+import Company from './components/Company'
+import Services from './components/Services'
+import Work from './components/Work'
+import Contact from './components/Contact'
 
 const App = () => {
   useEffect(() => {
@@ -28,9 +33,11 @@ const App = () => {
     <div>
       <CursorGlow/>
       <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <Hero/>
+      <Company/>
+      <Services/>
+      <Work/>
+      <Contact/>
       <Footer/>
     </div>
   )
