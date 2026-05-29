@@ -35,10 +35,10 @@ const Footer = () => {
                     <p className='text-sm'>Subscribe to get the latest college admission updates, verified information, and career guidance directly in your inbox.</p>
                     <div className='flex flex-col md:flex-row items-start gap-2 mt-4'>
                         <input className='w-full px-4 py-3 border border-[#aeaeae] rounded outline-none text-[15px]' type="text" placeholder='Enter Your Email' />
-                        <button className='group relative overflow-hidden bg-[#bc0101] text-white py-3 px-6 rounded cursor-pointer hover:bg-[#900101] transition-colors duration-300'>
+                        <button className='group relative overflow-hidden bg-[#bc0101] text-white py-3 px-6 rounded cursor-pointer hover:bg-[#900101] transition-colors duration-300 flex items-center justify-center'>
   
   {/* Default Text */}
-  <span className='block transition-all duration-300 group-hover:-translate-y-10 group-hover:opacity-0'>
+  <span className='block transition-all duration-300 group-hover:-translate-y-10 group-hover:opacity-0 '>
     Subscribe
   </span>
 
