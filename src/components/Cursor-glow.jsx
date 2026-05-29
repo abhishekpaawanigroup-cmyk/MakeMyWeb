@@ -1,31 +1,47 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
  
 export default function CursorGlow() {
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-  });
+  const glowRef = useRef(null);
  
   useEffect(() => {
+    let mouseX = 0;
+    let mouseY = 0;
+ 
+    let currentX = 0;
+    let currentY = 0;
+ 
     const moveCursor = (e) => {
-      setPosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
+      mouseX = e.clientX;
+      mouseY = e.clientY;
     };
  
     window.addEventListener("mousemove", moveCursor);
  
+    const animate = () => {
+      currentX += (mouseX - currentX) * 0.15
+      currentY += (mouseY - currentY) * 0.15;
+ 
+      if (glowRef.current) {
+        glowRef.current.style.transform = `translate3d(
+          ${currentX - 20}px,
+          ${currentY - 20}px,
+          0
+        )`;
+      }
+ 
+      requestAnimationFrame(animate);
+    };
+ 
+    animate();
+ 
     return () => {
-      window.removeEventListener(
-        "mousemove",
-        moveCursor
-      );
+      window.removeEventListener("mousemove", moveCursor);
     };
   }, []);
  
   return (
     <div
+      ref={glowRef}
       className="
         fixed
         top-0
@@ -37,15 +53,9 @@ export default function CursorGlow() {
         blur-[12px]
         pointer-events-none
         z-[999]
-        transition-all
-        duration-100
+        transform-gpu
+        will-change-transform
       "
-      style={{
-        transform: `translate(
-          ${position.x - 20}px,
-          ${position.y - 20}px
-        )`,
-      }}
     />
   );
 }
